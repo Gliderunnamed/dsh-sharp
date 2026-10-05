@@ -1,0 +1,6 @@
+url: https://github.com/OWNER/dsh-sharp
+name: OWNER/dsh-sharp
+category: model
+description:
+  en: 'Adds a numbered answering contract to the system prompt and lowers the reasoning effort and max output tokens of each call, so replies lead with the conclusion; switch levels at runtime with /sharp.'
+  zh: '给系统提示词插入编号回答契约，并压低每次调用的思考档位与最大输出 token，让回答先给结论；用 /sharp 在运行时切换档位。'
