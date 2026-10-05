@@ -16,7 +16,8 @@
     "README.zh.md",
     "CHANGELOG.md",
     "LICENSE",
-    "test"
+    "test",
+    "tools"
   ],
   "engines": {
     "node": "^22.19.0 || >=24",
