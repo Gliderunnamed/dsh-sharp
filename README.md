@@ -70,16 +70,16 @@ Model capability lookups (`llm.resolveModelInfo`) are shared by both governors a
 ### From GitHub (recommended)
 
 ```
-plugin_manager action=install_bundle target="github:<owner>/dsh-sharp"
+plugin_manager action=install_bundle target="github:Gliderunnamed/dsh-sharp"
 ```
 
 Equivalent CLI form (`dsh plugin` just forwards its arguments to the profile's pnpm):
 
 ```
-dsh plugin --profile web add github:<owner>/dsh-sharp
+dsh plugin --profile web add github:Gliderunnamed/dsh-sharp
 ```
 
-Pin a revision with a ref: `github:<owner>/dsh-sharp#<commit-sha>`. `cordis.patch.yml` then `insert`s a plugin with id `sharp`. A live profile applies it **immediately, no restart**.
+Pin a revision with a ref: `github:Gliderunnamed/dsh-sharp#<commit-sha>`. `cordis.patch.yml` then `insert`s a plugin with id `sharp`. A live profile applies it **immediately, no restart**.
 
 The repository must be reachable **anonymously**: before pnpm starts, the manager probes it with `git -c credential.helper= ls-remote -- <repo> HEAD` while disabling credential helpers and every prompt (`GIT_TERMINAL_PROMPT=0`, `GIT_ASKPASS=''`, `SSH_ASKPASS_REQUIRE=never`). A public repository passes with no credentials; pnpm owns authentication afterwards.
 
@@ -89,8 +89,8 @@ The repository must be reachable **anonymously**: before pnpm starts, the manage
 | --- | --- |
 | local directory (development) | `link:D:/dsh_work/dsh-sharp` (**absolute path required**) |
 | local tarball | `D:/path/dsh-sharp-1.0.0.tgz` |
-| git | `github:owner/repo`, `github:owner/repo#<sha>`, `git+https://github.com/owner/repo.git#ref`, `git@github.com:owner/repo.git` |
-| npm | `@owner/dsh-sharp` or `@owner/dsh-sharp@1.0.0` |
+| git | `github:Gliderunnamed/dsh-sharp`, `github:Gliderunnamed/dsh-sharp#<sha>`, `git+https://github.com/Gliderunnamed/dsh-sharp.git#ref`, `git@github.com:Gliderunnamed/dsh-sharp.git` |
+| npm | `@gliderunnamed/dsh-sharp` or `@gliderunnamed/dsh-sharp@1.0.0` |
 
 `plugin-manager`'s `parseInstallSpec` decides what is accepted: after `file:` / `link:` the path must be absolute, an `https://` URL must point at a git repository or a `.tgz`, and a bare name must be a valid registry package name. Installation requires the package to declare `dsh.bundle`, otherwise it lands as a plain dependency with the warning `declares no dsh.bundle`.
 

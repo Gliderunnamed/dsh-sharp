@@ -1,5 +1,5 @@
 {
-  "name": "@OWNER/dsh-sharp",
+  "name": "@gliderunnamed/dsh-sharp",
   "version": "1.0.0",
   "description": "dsh-sharp: 锐化 AI 输出 —— 回答先给结论、直白简短不绕弯子，抑制多余思考，并收紧输出上限。",
   "type": "module",
@@ -63,15 +63,15 @@
     "thinking-budget"
   ],
   "license": "MIT",
-  "author": "OWNER",
+  "author": "Gliderunnamed",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OWNER/dsh-sharp.git"
+    "url": "git+https://github.com/Gliderunnamed/dsh-sharp.git"
   },
   "bugs": {
-    "url": "https://github.com/OWNER/dsh-sharp/issues"
+    "url": "https://github.com/Gliderunnamed/dsh-sharp/issues"
   },
-  "homepage": "https://github.com/OWNER/dsh-sharp#readme",
+  "homepage": "https://github.com/Gliderunnamed/dsh-sharp#readme",
   "publishConfig": {
     "access": "public"
   },

@@ -1,5 +1,5 @@
-url: https://github.com/OWNER/dsh-sharp
-name: OWNER/dsh-sharp
+url: https://github.com/Gliderunnamed/dsh-sharp
+name: Gliderunnamed/dsh-sharp
 category: model
 description:
   en: 'Adds a numbered answering contract to the system prompt and lowers the reasoning effort and max output tokens of each call, so replies lead with the conclusion; switch levels at runtime with /sharp.'

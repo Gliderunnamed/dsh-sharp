@@ -68,16 +68,18 @@
 ### 从 GitHub 安装（推荐）
 
 ```
-plugin_manager action=install_bundle target="github:<owner>/dsh-sharp"
+plugin_manager action=install_bundle target="github:Gliderunnamed/dsh-sharp"
 ```
 
 等价 CLI 写法（`dsh plugin` 只是把参数转发给 profile 里的 pnpm）：
 
 ```
-dsh plugin --profile web add github:<owner>/dsh-sharp
+dsh plugin --profile web add github:Gliderunnamed/dsh-sharp
 ```
 
-想钉住版本就带 ref：`github:<owner>/dsh-sharp#<commit-sha>`。装完 `cordis.patch.yml` 会 `insert` 一个 id 为 `sharp` 的插件；live profile **立即生效，不用重启**。
+想钉住版本就带 ref：`github:Gliderunnamed/dsh-sharp#<commit-sha>`。装完 `cordis.patch.yml` 会 `insert` 一个 id 为 `sharp` 的插件；live profile **立即生效，不用重启**。
+
+仓库必须能**匿名访问**：pnpm 启动前，管理器会用 `git -c credential.helper= ls-remote -- <repo> HEAD` 探一次，同时关掉凭据助手与所有交互提示（`GIT_TERMINAL_PROMPT=0`、`GIT_ASKPASS=''`、`SSH_ASKPASS_REQUIRE=never`）。公开仓库零凭据即可过，之后的认证由 pnpm 接管。
 
 ### 其他 target 写法
 
@@ -85,8 +87,8 @@ dsh plugin --profile web add github:<owner>/dsh-sharp
 | --- | --- |
 | 本地目录（开发用） | `link:D:/dsh_work/dsh-sharp`（**必须是绝对路径**） |
 | 本地 tarball | `D:/path/dsh-sharp-1.0.0.tgz` |
-| git | `github:owner/repo`、`github:owner/repo#<sha>`、`git+https://github.com/owner/repo.git#ref`、`git@github.com:owner/repo.git` |
-| npm | `@owner/dsh-sharp` 或 `@owner/dsh-sharp@1.0.0` |
+| git | `github:Gliderunnamed/dsh-sharp`、`github:Gliderunnamed/dsh-sharp#<sha>`、`git+https://github.com/Gliderunnamed/dsh-sharp.git#ref`、`git@github.com:Gliderunnamed/dsh-sharp.git` |
+| npm | `@gliderunnamed/dsh-sharp` 或 `@gliderunnamed/dsh-sharp@1.0.0` |
 
 可接受的写法由 `plugin-manager` 的 `parseInstallSpec` 决定：`file:` / `link:` 后面必须是绝对路径，`https://` 必须指向 git 仓库或 `.tgz`，裸名字必须是 registry 认可的包名。安装要求包声明了 `dsh.bundle`，否则只会当成普通依赖装上并警告 `declares no dsh.bundle`。
 
