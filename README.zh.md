@@ -65,15 +65,32 @@
 
 ## 二、安装
 
-插件目录就是包本身。已实测可用的安装方式：
+### 从 GitHub 安装（推荐）
 
 ```
-plugin_manager action=install_bundle target="link:D:/dsh_work/dsh-sharp"
+plugin_manager action=install_bundle target="github:<owner>/dsh-sharp"
 ```
 
-（装完 `cordis.patch.yml` 会 `insert` 一个 id 为 `sharp` 的插件；live profile **立即生效，不用重启**。GUI 插件页选目录安装等效。）
+等价 CLI 写法（`dsh plugin` 只是把参数转发给 profile 里的 pnpm）：
 
-**回滚**：`plugin_manager remove_bundle` 目标 `dsh-sharp`；或把 `sharp` 插件 `set_plugin enabled=false`；运行时也可以 `/sharp off` 临时静音（会话级）。
+```
+dsh plugin --profile web add github:<owner>/dsh-sharp
+```
+
+想钉住版本就带 ref：`github:<owner>/dsh-sharp#<commit-sha>`。装完 `cordis.patch.yml` 会 `insert` 一个 id 为 `sharp` 的插件；live profile **立即生效，不用重启**。
+
+### 其他 target 写法
+
+| 方式 | target |
+| --- | --- |
+| 本地目录（开发用） | `link:D:/dsh_work/dsh-sharp`（**必须是绝对路径**） |
+| 本地 tarball | `D:/path/dsh-sharp-1.0.0.tgz` |
+| git | `github:owner/repo`、`github:owner/repo#<sha>`、`git+https://github.com/owner/repo.git#ref`、`git@github.com:owner/repo.git` |
+| npm | `@owner/dsh-sharp` 或 `@owner/dsh-sharp@1.0.0` |
+
+可接受的写法由 `plugin-manager` 的 `parseInstallSpec` 决定：`file:` / `link:` 后面必须是绝对路径，`https://` 必须指向 git 仓库或 `.tgz`，裸名字必须是 registry 认可的包名。安装要求包声明了 `dsh.bundle`，否则只会当成普通依赖装上并警告 `declares no dsh.bundle`。
+
+**回滚**：`plugin_manager action=remove_bundle target="dsh-sharp"`；或把 `sharp` 插件 `set_plugin enabled=false`；运行时也可以 `/sharp off` 临时静音（会话级）。
 
 ### 为什么插件里没有任何 import
 

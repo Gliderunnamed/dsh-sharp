@@ -19,7 +19,32 @@
     "test"
   ],
   "engines": {
-    "node": "^22.19.0 || >=24"
+    "node": "^22.19.0 || >=24",
+    "dsh": ">=0.2.0-rc.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": "*",
+    "@deepseek-ai/dsh-system-prompt": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-commands": "*",
+    "@deepseek-ai/cordis": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-system-prompt": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-commands": {
+      "optional": true
+    },
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
   },
   "scripts": {
     "test": "node test/smoke.mjs && node test/integration.mjs"
