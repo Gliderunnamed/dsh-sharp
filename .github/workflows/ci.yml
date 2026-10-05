@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['22', '24']
+    name: node ${{ matrix.node }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      # 本包零依赖，无需 install 步骤。
+      # test/integration.mjs 在缺少 .runtime/（从 app.asar 抽出的真实运行时）时会自动 SKIP，
+      # 所以 CI 上跑的是完整冒烟测试 + 集成测试的跳过分支。
+      - run: npm test

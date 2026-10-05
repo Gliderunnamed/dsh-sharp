@@ -1,0 +1,4 @@
+# 统一按 LF 入库，避免 Windows 上出现整仓 CRLF 噪声。
+* text=auto eol=lf
+*.png binary
+*.jpg binary

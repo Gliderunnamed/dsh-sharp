@@ -1,0 +1,23 @@
+# dsh-sharp bundle patch
+#
+# 把本目录装成 bundle 后，cordis 会按这份 patch 自动把插件条目插进配置图。
+# 本插件刻意不在这里写 config: 块 —— 默认值全部在 lib/index.js 里归一化，
+# 想改默认值请用聊天里的 /sharp 命令（运行时生效），或按下面注释的写法加 config。
+#
+- insert:
+    - id: sharp
+      name: '@OWNER/dsh-sharp'
+      # config:
+      #   enabled: true
+      #   level: balanced        # off | lite | balanced | hard
+      #   language: zh           # zh | en | both
+      #   order: 119
+      #   thinking:
+      #     mode: auto           # auto | inherit | prefer-low | model-default
+      #     prefer: [low, minimal]
+      #   budget:
+      #     mode: auto           # auto | inherit | normal | tight | strict | <正整数>
+      #     normal: 16384
+      #     tight: 4096
+      #     strict: 2048
+      #     floor: 512           # 任何显式上限都不会低于它

@@ -1,0 +1,3 @@
+# 从 app.asar 抽出的临时验证运行时（集成测试用，不属于插件产物）
+.runtime/
+node_modules/

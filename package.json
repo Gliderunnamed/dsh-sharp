@@ -1,0 +1,57 @@
+{
+  "name": "@OWNER/dsh-sharp",
+  "version": "1.0.0",
+  "description": "dsh-sharp: 锐化 AI 输出 —— 回答先给结论、直白简短不绕弯子，抑制多余思考，并收紧输出上限。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "test"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24"
+  },
+  "scripts": {
+    "test": "node test/smoke.mjs && node test/integration.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "system-prompt",
+    "prompt-engineering",
+    "output-style",
+    "concise",
+    "reasoning-effort",
+    "thinking-budget"
+  ],
+  "license": "MIT",
+  "author": "OWNER",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OWNER/dsh-sharp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OWNER/dsh-sharp/issues"
+  },
+  "homepage": "https://github.com/OWNER/dsh-sharp#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
