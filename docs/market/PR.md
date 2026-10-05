@@ -35,6 +35,8 @@ description:
 
 ## 三、操作步骤
 
+先在浏览器点 **Fork**：<https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/fork>，得到 `https://github.com/Gliderunnamed/awesome-dsh-plugin`（下面的地址就是你自己 fork 出来那个）。
+
 ```bash
 git clone https://github.com/Gliderunnamed/awesome-dsh-plugin && cd awesome-dsh-plugin
 git checkout -b add-dsh-sharp
