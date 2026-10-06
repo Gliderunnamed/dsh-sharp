@@ -90,7 +90,7 @@ The repository must be reachable **anonymously**: before pnpm starts, the manage
 | local directory (development) | `link:D:/dsh_work/dsh-sharp` (**absolute path required**) |
 | local tarball | `D:/path/dsh-sharp-1.0.0.tgz` |
 | git | `github:Gliderunnamed/dsh-sharp`, `github:Gliderunnamed/dsh-sharp#<sha>`, `git+https://github.com/Gliderunnamed/dsh-sharp.git#ref`, `git@github.com:Gliderunnamed/dsh-sharp.git` |
-| npm | `@gliderunnamed/dsh-sharp` or `@gliderunnamed/dsh-sharp@1.0.0` |
+| npm | `dsh-sharp` or `dsh-sharp@1.0.1` |
 
 `plugin-manager`'s `parseInstallSpec` decides what is accepted: after `file:` / `link:` the path must be absolute, an `https://` URL must point at a git repository or a `.tgz`, and a bare name must be a valid registry package name. Installation requires the package to declare `dsh.bundle`, otherwise it lands as a plain dependency with the warning `declares no dsh.bundle`.
 

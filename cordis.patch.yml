@@ -6,7 +6,7 @@
 #
 - insert:
     - id: sharp
-      name: '@gliderunnamed/dsh-sharp'
+      name: dsh-sharp
       # config:
       #   enabled: true
       #   level: balanced        # off | lite | balanced | hard

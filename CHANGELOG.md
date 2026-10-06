@@ -2,6 +2,12 @@
 
 本文件记录 dsh-sharp 的对外变更。版本号遵循 [SemVer](https://semver.org/lang/zh-CN/)。
 
+## 1.0.1
+
+- **包名从 `@gliderunnamed/dsh-sharp` 退回 `dsh-sharp`**。这是真踩过的坑：`link:` / git 安装时 profile 的 `node_modules` 键名取自包的 `name`，而 `cordis.patch.yml` 里 `insert` 的 `name` 必须能从 profile 解析到**同一个**包。1.0.0 改了 `name` 却没重装，于是 `import('@gliderunnamed/dsh-sharp')` 直接 `ERR_MODULE_NOT_FOUND`，那条插入项永远不激活 —— 宿主对「有条目没激活」的处置是整个 web 启动失败：`Error: web boot: 1 entry did not activate`。现在包 `name`、`cordis.patch.yml`、两份 README 的安装表三处统一为 `dsh-sharp`，与旧的 `link:` 安装和 GitHub 仓库名（`Gliderunnamed/dsh-sharp`）都自洽。
+- `apply()` 整体包一层 `try/catch`：任何意外异常只写一条 `logger.error` 并把插件降级为**无操作**，绝不把宿主的加载 fiber 带崩（即不再可能因为本插件出现 `web boot: N entry did not activate`）。
+- `/sharp` 命令注册同样加保护：同名命令被重复注册（插件装了两遍）时只警告，不再抛。
+
 ## 1.0.0
 
 首个公开发布版：三条机制、零运行时依赖、48 项测试。

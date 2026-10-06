@@ -1,6 +1,6 @@
 {
-  "name": "@gliderunnamed/dsh-sharp",
-  "version": "1.0.0",
+  "name": "dsh-sharp",
+  "version": "1.0.1",
   "description": "dsh-sharp: 锐化 AI 输出 —— 回答先给结论、直白简短不绕弯子，抑制多余思考，并收紧输出上限。",
   "type": "module",
   "main": "lib/index.js",

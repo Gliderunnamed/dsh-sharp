@@ -88,7 +88,7 @@ dsh plugin --profile web add github:Gliderunnamed/dsh-sharp
 | 本地目录（开发用） | `link:D:/dsh_work/dsh-sharp`（**必须是绝对路径**） |
 | 本地 tarball | `D:/path/dsh-sharp-1.0.0.tgz` |
 | git | `github:Gliderunnamed/dsh-sharp`、`github:Gliderunnamed/dsh-sharp#<sha>`、`git+https://github.com/Gliderunnamed/dsh-sharp.git#ref`、`git@github.com:Gliderunnamed/dsh-sharp.git` |
-| npm | `@gliderunnamed/dsh-sharp` 或 `@gliderunnamed/dsh-sharp@1.0.0` |
+| npm | `dsh-sharp` 或 `dsh-sharp@1.0.1` |
 
 可接受的写法由 `plugin-manager` 的 `parseInstallSpec` 决定：`file:` / `link:` 后面必须是绝对路径，`https://` 必须指向 git 仓库或 `.tgz`，裸名字必须是 registry 认可的包名。安装要求包声明了 `dsh.bundle`，否则只会当成普通依赖装上并警告 `declares no dsh.bundle`。
 
